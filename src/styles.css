@@ -1,7 +1,45 @@
+body{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#open-sidebar, table, h1 {
+    margin-left: 120px;
+}
+
 table, tr, td, th {
     outline: 1px solid blue;
 }
 
+ul {
+    list-style-type: none;
+    background-color: rgb(98, 197, 255);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+}
+li a{
+    display: block;
+    width: 100px;    
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.active {
+    background-color: yellow;
+    color: white;
+}
+
+a:hover:not(.active) {
+    background-color: rgb(255, 253, 150);
+
+}
 /* these two doesnt seem to work */
 nav {
     align-self: center;
