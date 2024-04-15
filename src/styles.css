@@ -1,0 +1,13 @@
+table, tr, td, th {
+    outline: 1px solid blue;
+}
+
+/* these two doesnt seem to work */
+nav {
+    align-self: center;
+}
+
+button {
+    align-items: center;
+    align-self: center;
+}
