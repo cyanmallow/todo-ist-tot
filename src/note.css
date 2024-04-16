@@ -1,0 +1,81 @@
+body {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#open-sidebar, table, h1 {
+    margin-left: 120px;
+}
+
+table, tr, td, th {
+    outline: 1px solid blue;
+}
+
+ul {
+    list-style-type: none;
+    background-color: rgb(98, 197, 255);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    width: 100px;    
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.active {
+    background-color: yellow;
+    color: white;
+}
+
+a:hover:not(.active) {
+    background-color: rgb(255, 253, 150);
+}
+
+/* These two don't seem to work */
+nav {
+    align-self: center;
+}
+
+button {
+    align-items: center;
+    align-self: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 120px;
+    gap: 20px;
+}
+
+button {
+    margin-left: 120px;
+}
+
+.item {
+    flex-grow: 1;
+    outline: 1px solid black;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background-color: blanchedalmond;
+    color: blueviolet;
+    /* Only 4 flex on one line, calculated by 25% minus the gap */
+    flex-basis: calc(25% - 20px);
+    margin-bottom: 20px;
+}
+
+.item:hover {
+    background-color: aquamarine;
+}
