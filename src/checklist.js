@@ -17,52 +17,65 @@ document.getElementById("add-item").addEventListener("click", function(){
 
         //append new item to the checklist
         document.getElementById("checkbox").appendChild(newItem);
+
+        //add checklist to storage
+        saveChecklistItems();
     }
 })
+// Function to load checklist items from localStorage
+function loadChecklistItems() {
+    var savedState = localStorage.getItem('checklistState');
+    if (savedState) {
+        var checklistState = JSON.parse(savedState);
 
-// THE BELOW PART IS FOR THE NOTE PART, I MISTOOK THE TWO
-// local storage
-//save note data to local storage
-function saveNotesToLocalStorage(notes){
-    localStorage.setItem("notes", JSON.stringify(notes));
+        checklistState.forEach(function(itemState){
+            var newItem= document.createElement("li");
+            newItem.className = "item";
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = itemState.checked;
+
+            newItem.appendChild(checkbox);
+            newItem.appendChild(document.createTextNode(itemState.text));
+
+            document.getElementById("checkbox").appendChild(newItem);
+        });
+    }
 }
 
-//retrieve notes data from local storage
-function getNotesFromLocalStorage(){
-    var notes = localStorage.getItem("notes");
-    return notes ? JSON.parse(notes) : [];
+
+// Function to save checklist items to localStorage
+function saveChecklistItems() {
+    //the below only added text into storage, and not the box
+    // var checklistHTML = document.getElementById("checkbox").innerHTML;
+    // localStorage.setItem('checklistItems', checklistHTML);
+
+    var checklistItems = document.querySelectorAll("#checkbox .item");
+    var checklistState = []
+
+    checklistItems.forEach(function(item){
+        var text = item.textContent.trim();
+        var isChecked = item.querySelector("input[type='checkbox']").checked;
+        checklistState.push({ text: text, checked: isChecked });
+    });
+
+localStorage.setItem('checklistState', JSON.stringify(checklistState));
 }
 
-//display notes on the page
-function displayNotes(notes){
-    var container = document.querySelector(".container");
-    container.innerHTML = '';
 
-    notes.forEach(function(noteContent){
-        //create new item
-        var newItem = document.createElement("li");
-        newItem.className = "item";
+// Event listener to save checklist items when a checkbox is clicked
+document.getElementById("checkbox").addEventListener("change", function(event) {
+    // Save the checklist items to localStorage
+    saveChecklistItems();
+});
 
-        //create checkbox input for the item
-        var checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
+// Load checklist items from localStorage when the page loads
+window.addEventListener("load", function() {
+    loadChecklistItems();
+});
 
-        //set the text input of the list item
-        newItem.textContent = noteContent;
-
-        //append checkbox and text to new item
-        newItem.appendChild(checkbox);
-        newItem.appendChild(document.createTextNode(newCheck));
-
-        //append new item to the checklist
-        container.appendChild(newItem);
-    })
-}
-
-//initializing the page
-function init(){
-    var notes = getNotesFromLocalStorage();
-    displayNotes(notes);
-}
-
-init();
+document.getElementById("clear-item").addEventListener("click", function(){
+    localStorage.clear();
+    alert("F5 to take effect!");
+})
