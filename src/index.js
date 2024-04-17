@@ -25,3 +25,5 @@ document.getElementById("add").addEventListener("click", function(){
     }
 });
 
+// TODO: local storage
+
