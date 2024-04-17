@@ -12,19 +12,30 @@
         </ul>
 
         <h1>Todo Lists</h1>
-        <table>
-            <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Due date</th>
-            <th>Priority</th>
-        </tr>
-        <tr>
-            <td>Title</td>
-            <td>Description</td>
-            <td>Due date</td>
-            <td>Priority</td>
-        </tr>
+
+        <input type="text" class="input-field" id="title" placeholder="Title"><br>
+        <input type="text" class="input-field" id="description" placeholder="Description"><br>
+        <input type="datetime-local" class="input-field" id="date" placeholder="Due date"><br>
+        <input type="checkbox" class="input-field" id="importance" placeholder="Priority">Important<br><br>
+
+        <button id="add">Add</button>
+        <table id="todoTable">
+            <thead>
+                <tr>
+                    <th class="item">Title</th>
+                    <th class="item">Description</th>
+                    <th class="item">Due date</th>
+                    <th class="item">Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td class="item">Title</td>
+                    <td class="item">Description</td>
+                    <td class="item">Due date</td>
+                    <td class="item">Priority</td>
+                </tr> -->
+            </tbody>
         </table>
 
         <script src="index.js"></script>

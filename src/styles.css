@@ -1,19 +1,17 @@
-body{
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
+/* below is made by gpt, cuz my designing skills suck */
+
+* {
+    margin: 0;
+    padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#open-sidebar, table, h1 {
+/* Adjustments for specific elements */
+#open-sidebar, h1, button {
     margin-left: 120px;
 }
 
-table, tr, td, th {
-    outline: 1px solid blue;
-}
-
+/* Styling for the navigation menu */
 ul {
     list-style-type: none;
     background-color: rgb(98, 197, 255);
@@ -23,7 +21,7 @@ ul {
     position: fixed;
     overflow: auto;
 }
-li a{
+li a {
     display: block;
     width: 100px;    
     text-decoration: none;
@@ -31,21 +29,21 @@ li a{
     font-size: 20px;
 }
 
-.active {
-    background-color: yellow;
-    color: white;
+/* Styling for the input fields */
+.input-field {
+    margin-left: 120px;
 }
 
-a:hover:not(.active) {
-    background-color: rgb(255, 253, 150);
-
+/* Styling for the table */
+table {
+    margin-left: 120px; /* Adjust the margin to align with other elements */
+    width: 100%; /* Make the table fill the available width */
+    border-collapse: collapse; /* Collapse the border spacing */
 }
-/* these two doesnt seem to work */
-nav {
-    align-self: center;
+th, td {
+    padding: 10px; /* Add padding to cells */
+    border: 1px solid black; /* Add border to cells */
 }
-
-button {
-    align-items: center;
-    align-self: center;
+th.item { /* Adjust the width of specific header cells */
+    width: 150px; /* Set the width as desired */
 }
